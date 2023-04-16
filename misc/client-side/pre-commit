@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+
+# exit non-zero if any checks fail
+
+# redirect output to stderr
+exec 1>&2
+
+## only check staged files
+deleted=$(git diff-index --cached HEAD | grep '\sD\s' | sed 's/.*\t//')
+changed_files=$(git diff --name-only --cached | grep -v -F -f <(echo "$deleted"))
+
+readarray -t changed_java_files < <(echo "$changed_files" | grep '\.java$')
+
+if [[ -n "${changed_java_files[*]}" ]]; then
+  if command -v google-java-format &>/dev/null; then
+
+    echo "Running google-java-format"
+    failed_files=$(google-java-format --dry-run --set-exit-if-changed "${changed_java_files[@]}")
+    format_exit_code=$?
+
+    if [[ "$format_exit_code" != 0 ]]; then
+      echo "Some files staged for commit did not comply with our java formatting style. Please format them accordingly."
+      echo "Affected files:"
+      echo
+      echo "$failed_files"
+      echo
+    fi
+
+  else
+    echo "google-java-format not found (for a tutorial read misc/google-java-format.md)"
+    format_exit_code=10
+  fi
+
+  if command -v checkstyle &>/dev/null; then
+
+    echo "Running checkstyle"
+    checkstyle -c misc/checkstyle.xml "${changed_java_files[@]}"
+    checkstyle_exit_code=$?
+
+    if [[ "$checkstyle_exit_code" != 0 ]]; then
+      echo "Some files staged for commit did not comply with our checkstyle rules (see above). Please modify them accordingly."
+    fi
+
+  else
+    echo "checkstyle not found (for a tutorial read misc/checkstyle.md)"
+    checkstyle_exit_code=10
+  fi
+fi
+
+check_failed() {
+  [[ -n "$1" && "$1" != 0 ]]
+}
+
+## add more exit codes for future checks
+for i in "$format_exit_code" "$checkstyle_exit_code"; do
+  if check_failed "$i"; then
+    exit 1
+  fi
+done

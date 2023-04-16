@@ -1,0 +1,27 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Projektraum",
+          "popupContent": "Dort passieren verschiedene Sachen!"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [8.5835256, 53.5403986]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "StuCa",
+          "popupContent": "Hol dir deinen Cafe ab"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [8.5832144, 53.5398144]
+        }
+      }
+    ]
+  }

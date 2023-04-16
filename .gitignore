@@ -1,0 +1,6 @@
+build/
+*.war
+/.username-override
+/Session.vim
+jar
+/*.out

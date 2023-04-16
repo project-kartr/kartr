@@ -1,0 +1,497 @@
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.theme-1 {
+  --primary-color: white;
+  --primary-text-color: #3c4043;
+  --primary-border-color: #dadce0;
+
+/*colors for story views and login */
+  --header-background-color: #002C50;
+  --story-background-color: #EBF1F1;
+  --primary-button-color: #105D9C;
+  --author-text-color: #CCCCCC;
+  --primary-warning-color: #9C241F;
+  --header-text-color: #FFFFFF;
+
+  --border-radius-var: 10px;
+}
+
+.cookie-banner {
+  box-shadow: 0px 0px 15px black;
+  position: absolute;
+  bottom: 80px;
+  left: 20px;
+  right: 20px;
+  border-radius: var(--border-radius-var);
+  padding: 1rem;
+  background-color: var(--primary-color);
+  z-index: 10;
+}
+
+.cookie-banner-headline {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 1rem;
+  color: var(--primary-text-color)
+}
+
+.cookie-banner-main {
+  margin-bottom: 1rem;
+}
+
+.cookie-banner-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.warning-card {
+  margin: 0;
+  background-color: var(--primary-warning-color);
+  color: var(--primary-color);
+  border-radius: var(--border-radius-var);
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.map {
+  z-index: 0;
+}
+
+.blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  backdrop-filter: blur(10px);
+  display: none;
+}
+
+.input {
+  border: 2px solid var(--header-background-color);
+  border-radius: var(--border-radius-var);
+  padding: 5px;
+  margin-bottom: 15px;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+.input-files {
+  margin-bottom: 15px;
+}
+
+.text-cut {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.text-wrap {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.full-size {
+  width: 100%;
+  height: 100%;
+}
+@media only screen and (min-width: 950px) {
+  .popup {
+    width: 25% !important;
+    height: 75% !important;
+    top: 12.5% !important;
+    left: 35%;
+    border-radius:10px;
+  }
+  .popup-header {
+    border-radius: 10px 10px 0 0;
+  }
+}
+.visible {
+  display: block;
+  visibility: visible;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+.hide {
+  visibility: hidden; 
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+}
+
+.sidebar > div {
+  margin: 2em;
+}
+
+.sidebar-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--primary-color);
+  padding: 15px;
+  font-size: 16px;
+  box-shadow: 0px 0px 5px #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-text-color);
+}
+
+.sidebar-button.active {
+  background-color: var(--header-background-color);
+  color: white;
+}
+
+#sidebar-add-button {
+  will-change: transform;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+#sidebar-help-button {
+  will-change: transform;
+  position: absolute;
+  top: 90px;
+  right: 20px;
+}
+
+#sidebar-hamburger-button {
+  will-change: transform;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.Impressum {
+  margin-right: 30px;
+  text-decoration: none;
+  color: var(--primary-button-color);
+  font-weight: bold;
+}
+
+.popup-header {
+  background-color: var(--header-background-color);
+  color: var(--header-text-color) !important;
+}
+
+.popup-background {
+  position: fixed;
+  top: 0;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  background-color: var(--primary-color);
+  width: 100%;
+  height: 100%;
+}
+
+.popup-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-header {
+  padding: 1rem;
+  height: 3rem;
+}
+
+.popup-title {
+  font-size: 4.5vw;
+}
+
+.popup-main {
+  padding: 1rem;
+  color: var(--header-background-color);
+  overflow: auto;
+}
+
+.story-author {
+ color: var(--author-text-color) !important;
+}
+
+.popup-footer {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+}
+
+.layout-inline {
+  display: flex;
+  gap: 1rem;
+}
+
+.layout-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.layout-space-between-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.layout-space-between-column-story-edit {
+  display: flex;
+  flex-direction: column;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.text {
+  color: var(--primary-text-color);
+}
+
+.text-margin-0 {
+  /*color: var(--primary-text-color);*/
+  width: 70%;
+  margin: 0;
+  text-align: center;
+  font-size: 20px;
+}
+
+.image {
+  width: 128px;
+  height: 128px;
+  background-color: rgba(0,0,0,0.1);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--border-radius-var);
+}
+
+img {
+  height: 100%;
+}
+
+.files {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 1rem;
+  margin-bottom: 15px;
+}
+
+.file {
+  height: 20vh;
+  position: relative;
+}
+
+.stories-inject {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.story-file-remove {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  right: 8px;
+  top: 6px;
+  z-index: 10;
+  background: url(../images/icons/xmark-solid.svg);
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+} 
+
+.story-file-remove:hover {
+  background-color: var(--primary-button-color); 
+}
+
+.button-transparent {
+  background-color: transparent;
+  color: var(--primary-color);
+  margin: 0;
+  padding: 0.5rem;
+  border: 0;
+  width: 15%;
+  height: 100%; 
+}
+
+.button-transparent:disabled {
+  color: gray;
+}
+
+input[type=button], input[type=submit], input[type=reset], .button {
+  -webkit-appearance: none;
+  text-decoration: none;
+  cursor: pointer;
+  min-width: 8rem;
+  font-weight: bold;
+  font-family: inherit;
+  font-size: inherit;
+  text-align: center;
+  border-radius: var(--border-radius-var);
+  padding: 1rem;
+  background-color: var(--primary-button-color);
+  margin: 0;
+  border: none;
+  color: var(--header-text-color);
+}
+
+.button.delete {
+  background-color: var(--primary-warning-color);
+  width: 100%;
+}
+
+input[type=button]:disabled, input[type=submit]:disabled, input[type=reset]:disabled, .button:disabled {
+  background-color: gray;
+}
+
+.button-group {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.story-input {
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.label-normal {
+  padding-bottom: 5px;
+  font-weight: normal;
+}
+
+.label, .link {
+  padding-bottom: 5px;
+  font-weight: bold;
+}
+
+.link {
+  color: var(--primary-button-color);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.storyPreview {
+  border-radius: var(--border-radius-var);
+  background-color: var(--story-background-color);
+  padding: 15px;
+}
+
+.leaflet-bar {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  margin: 0px !important;
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+}
+
+#snackbar {
+  visibility: hidden; /* Hidden by default */
+  width: 256px;
+  margin-left: -136px;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1; /* Add a z-index if needed */
+  left: 50%;
+  bottom: 30px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations for the snackbar */
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;} 
+  to {bottom: 30px; opacity: 1;}
+}
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;} 
+  to {bottom: 0; opacity: 0;}
+}
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+/* Css for Loading symbol */
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 120px;
+  height: 120px;
+  margin: -76px 0 0 -76px;
+  border: 16px solid var(--story-background-color);
+  border-radius: 50%;
+  border-top: 16px solid var(--header-background-color);
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  display: none
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* This block is needed, to stop the icons from disappearing behind the map. 
+   It tells the Browser, that elements will change and transform.
+   This only happened on Safari.
+   The fix was found on:  https://github.com/Leaflet/Leaflet/issues/8068  */
+.leaflet-control-container .leaflet-top,
+.leaflet-control-container .leaflet-bottom {
+  will-change: transform;
+}
